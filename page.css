@@ -1,0 +1,321 @@
+html {
+    scroll-behavior: smooth;
+}
+
+/* إعدادات عامة */
+body {
+    font-family: 'Cairo', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #bcdf64; /* لون رمادي فاتح بدلاً من الأبيض */
+    color: #333;
+    direction: rtl;
+    text-align: right;
+    scroll-behavior: smooth;
+}
+
+.container {
+    width: 85%;
+    margin: auto;
+}
+
+/* شريط التنقل */
+.header {
+    background: #2c3e50; /* أزرق داكن */
+    padding: 15px 0;
+    color: #ecf0f1; /* لون فاتح للنصوص بدلاً من الأبيض */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* ظل ناعم */
+}
+
+.header .logo h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    color: #ecf0f1; /* لون فاتح للنصوص بدلاً من الأبيض */
+}
+
+.header nav ul.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.header nav ul.nav-links li {
+    position: relative;
+}
+
+.header nav ul.nav-links li a {
+    color: #ecf0f1; /* لون فاتح للنصوص بدلاً من الأبيض */
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 12px 20px;
+    border-radius: 8px;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.header nav ul.nav-links li a:hover,
+.header nav ul.nav-links li a.active {
+    background-color: #3498db; /* أزرق فاتح */
+    color: #ecf0f1; /* لون فاتح للنصوص بدلاً من الأبيض */
+}
+
+/* تأثير التمرير */
+.header nav ul.nav-links li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 3px;
+    width: 0;
+    background-color: #bcdf64; /* برتقالي دافئ */
+    transition: width 0.4s ease;
+}
+
+.header nav ul.nav-links li a:hover::after,
+.header nav ul.nav-links li a.active::after {
+    width: 100%;
+}
+
+/* قسم الرئيسية */
+.hero {
+    height: 100vh;
+    background: url('hero-background.jpg') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ecf0f1;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.profile-img {
+    width: 30vw; /* تعيين العرض إلى 30% من عرض الشاشة */
+    max-width: 200px; /* تحديد الحد الأقصى للعرض إلى 200px */
+    height: auto; /* ضبط الارتفاع تلقائيًا للحفاظ على نسبة العرض إلى الارتفاع */
+    border-radius: 50%;
+    border: 5px solid #ecf0f1; /* تقليل سمك الحدود إلى 5px */
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: 3vw; /* استخدام وحدة vw لتكون متجاوبة مع حجم الشاشة */
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.5vw; /* استخدام وحدة vw لتكون متجاوبة مع حجم الشاشة */
+    margin-bottom: 30px;
+}
+
+/* الميديا كويري للهواتف المحمولة */
+@media (max-width: 768px) {
+    .hero {
+        padding: 20px;
+    }
+
+    .profile-img {
+        width: 50vw; /* تعيين العرض إلى 50% من عرض الشاشة للأجهزة الأصغر */
+        max-width: 150px; /* تحديد الحد الأقصى للعرض إلى 150px */
+    }
+
+    .hero h1 {
+        font-size: 5vw; /* تكبير الخط للأجهزة الأصغر */
+    }
+
+    .hero p {
+        font-size: 2.5vw; /* تكبير الخط للأجهزة الأصغر */
+    }
+}
+
+/* الميديا كويري للأجهزة اللوحية */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .profile-img {
+        width: 35vw; /* تعيين العرض إلى 35% من عرض الشاشة للأجهزة اللوحية */
+        max-width: 180px; /* تحديد الحد الأقصى للعرض إلى 180px */
+    }
+
+    .hero h1 {
+        font-size: 4vw; /* تكبير الخط للأجهزة اللوحية */
+    }
+
+    .hero p {
+        font-size: 2vw; /* تكبير الخط للأجهزة اللوحية */
+    }
+}
+
+
+.hero .btn {
+    padding: 12px 25px;
+    background-color: #fefefe; /* برتقالي دافئ */
+    color: #2c3e50; /* أزرق داكن */
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.4s ease;
+}
+
+.hero .btn:hover {
+    background-color: #3498db; /* برتقالي داكن */
+}
+
+
+
+
+/* الأقسام */
+.section {
+    padding: 80px 0;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    text-align: center;
+    color: #2c3e50; /* أزرق داكن */
+}
+
+/* قسم من أنا */
+.about p {
+    text-align: center;
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: auto;
+    color: #666; /* لون رمادي متوسط */
+}
+
+/* قسم المهارات */
+.skills-grid {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    text-align: center;
+}
+
+.skill-item {
+    background-color: #ffffff; /* خلفية بيضاء */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    transition: transform 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: translateY(-10px);
+}
+
+.skill-item h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #3498db; /* أزرق فاتح */
+}
+
+.skill-item p {
+    font-size: 1.1rem;
+    color: #666; /* لون رمادي متوسط */
+}
+
+/* قسم الأعمال */
+.projects-grid {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    text-align: center;
+}
+
+.project-item {
+    background-color: #ffffff; /* خلفية بيضاء */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    transition: transform 0.3s ease;
+}
+
+.project-item:hover {
+    transform: translateY(-10px);
+}
+
+.project-item h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #3498db; /* أزرق فاتح */
+}
+
+.project-item p {
+    font-size: 1.1rem;
+    color: #666; /* لون رمادي متوسط */
+}
+
+/* قسم التواصل */
+.contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 600px;
+    margin: auto;
+}
+
+.contact input,
+.contact textarea {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.contact button {
+    padding: 12px;
+    background-color: #3498db; /* أزرق فاتح */
+    color: #ecf0f1; /* لون فاتح للنصوص بدلاً من الأبيض */
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.4s ease;
+}
+
+.contact button:hover {
+    background-color: #2980b9; /* أزرق داكن */
+}
+
+.contact-info {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.contact-info p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: #2c3e50; /* أزرق داكن */
+}
+
+.contact-info .social-links a {
+    text-decoration: none;
+    color: #3498db; /* أزرق فاتح */
+    font-size: 1.2rem;
+    margin: 0 10px;
+    transition: color 0.4s ease;
+}
+
+.contact-info .social-links a:hover {
+    color: #e67e22; /* برتقالي دافئ */
+}
+
+/* التذييل */
+footer {
+    background: #2c3e50; /* أزرق داكن */
+    color: #ecf0f1; /* لون فاتح للنصوص بدلاً من الأبيض */
+    padding: 15px 0;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+}
